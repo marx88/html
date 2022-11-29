@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Marx\Html\Test;
 
 use Marx\Html\CloseTagNode;
+use Marx\Html\InnerTextNode;
 use Marx\Html\OpenTagNode;
-use Marx\Html\TextNode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -20,7 +20,7 @@ class OpenTagNodeTest extends TestCase
 {
     public function testPushNode()
     {
-        $textNode = TextNode::make('hello world');
+        $textNode = InnerTextNode::make('hello world');
 
         $obj = OpenTagNode::make('span')->pushNode($textNode);
 
@@ -77,10 +77,17 @@ class OpenTagNodeTest extends TestCase
         $this->assertEquals('name', $nodeArr[1]->getID());
     }
 
+    public function testInnerText()
+    {
+        $div = OpenTagNode::make('span')->innerText('hello');
+
+        $this->assertEquals('<span>hello</span>', $div->toString());
+    }
+
     public function testToString()
     {
         $div = OpenTagNode::make('div')->pushNode(CloseTagNode::make('br'));
 
-        $this->assertEquals('<div>'.PHP_EOL.'<br/>'.PHP_EOL.'</div>', $div->toString());
+        $this->assertEquals('<div><br></div>', $div->toString());
     }
 }

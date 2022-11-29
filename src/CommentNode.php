@@ -7,15 +7,8 @@ namespace Marx\Html;
 /**
  * 注释节点.
  */
-class CommentNode extends TextNode
+class CommentNode extends AbstractTextNode
 {
-    /**
-     * 节点文本.
-     *
-     * @var string
-     */
-    public $text;
-
     /**
      * {@inheritDoc}
      */

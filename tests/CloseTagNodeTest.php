@@ -61,13 +61,13 @@ class CloseTagNodeTest extends TestCase
         $obj->pushAttr($attrID, $attrName);
         $obj->tagName = 'input';
 
-        $this->assertEquals('<input id="id-one" name="name-one"/>', $obj->toString());
+        $this->assertEquals('<input id="id-one" name="name-one">', $obj->toString());
     }
 
     public function testMake()
     {
         $obj = close_tag('br');
-        $this->assertEquals('<br/>', $obj->toString());
+        $this->assertEquals('<br>', $obj->toString());
     }
 
     public function testGetID()

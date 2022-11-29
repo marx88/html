@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace Marx\Html;
 
 /**
- * 自关闭标签.
+ * Inner文本节点.
  */
-class CloseTagNode extends AbstractTagNode
+class InnerTextNode extends AbstractTextNode
 {
     /**
      * {@inheritDoc}
      */
     public function toString(): string
     {
-        $attr = $this->attrToString();
-
-        return "<{$this->tagName}{$attr}>";
+        return $this->text;
     }
 }

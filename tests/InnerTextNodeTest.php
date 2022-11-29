@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Marx\Html\Test;
 
-use Marx\Html\TextNode;
+use Marx\Html\InnerTextNode;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,19 +14,19 @@ use PHPUnit\Framework\TestCase;
  *
  * @coversNothing
  */
-class TextNodeTest extends TestCase
+class InnerTextNodeTest extends TestCase
 {
     public function testToString()
     {
-        $obj = new TextNode();
-        $obj->text = '<!DOCTYPE html>';
+        $obj = new InnerTextNode();
+        $obj->text = 'hello';
 
-        $this->assertEquals('<!DOCTYPE html>', $obj->toString());
+        $this->assertEquals('hello', $obj->toString());
     }
 
     public function testMake()
     {
-        $obj = TextNode::make('hello world');
+        $obj = InnerTextNode::make('hello world');
 
         $this->assertEquals('hello world', $obj->toString());
     }

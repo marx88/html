@@ -67,6 +67,14 @@ class OpenTagNode extends AbstractTagNode
     }
 
     /**
+     * 添加InnerText.
+     */
+    public function innerText(string $text)
+    {
+        return $this->pushNode(InnerTextNode::make($text));
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function toString(): string
@@ -78,6 +86,6 @@ class OpenTagNode extends AbstractTagNode
         }
         $nodeArr[] = "</{$this->tagName}>";
 
-        return implode(PHP_EOL, $nodeArr);
+        return implode('', $nodeArr);
     }
 }

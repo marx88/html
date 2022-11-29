@@ -7,7 +7,7 @@ namespace Marx\Html;
 /**
  * 文本节点.
  */
-class TextNode extends AbstractNode
+abstract class AbstractTextNode extends AbstractNode
 {
     /**
      * 节点文本.
@@ -25,14 +25,6 @@ class TextNode extends AbstractNode
         $obj->text = $text;
 
         return $obj;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function toString(): string
-    {
-        return $this->text;
     }
 
     /**
