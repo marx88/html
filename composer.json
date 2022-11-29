@@ -3,18 +3,25 @@
     "description": "html generator",
     "type": "library",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Marx\\Html\\": "src/",
-            "Marx\\Html\\Test\\": "tests/"
-        }
-    },
     "authors": [
         {
             "name": "Marx",
             "email": "marx_88@126.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Marx\\Html\\": "src/"
+        },
+        "files": [
+          "src/function.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "Marx\\Html\\Test\\": "tests/"
+        }
+    },
     "require": {
         "php": "^7.3||^8.0"
     },

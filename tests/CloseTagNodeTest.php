@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Marx\Html\Test;
 
 use Marx\Html\Attribute;
+
+use function Marx\Html\close_tag;
+
 use Marx\Html\CloseTagNode;
 use PHPUnit\Framework\TestCase;
 
@@ -63,8 +66,7 @@ class CloseTagNodeTest extends TestCase
 
     public function testMake()
     {
-        $obj = CloseTagNode::make('br');
-
+        $obj = close_tag('br');
         $this->assertEquals('<br/>', $obj->toString());
     }
 
