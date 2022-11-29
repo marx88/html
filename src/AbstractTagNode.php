@@ -53,7 +53,7 @@ abstract class AbstractTagNode extends AbstractNode
      *
      * @return static
      */
-    public function addAttr(string $name, string $value)
+    public function addAttr(string $name, ?string $value = null)
     {
         $attr = new Attribute();
         $attr->name = $name;

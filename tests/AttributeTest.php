@@ -28,7 +28,9 @@ class AttributeTest extends TestCase
     public function testMake()
     {
         $obj = Attribute::make('id', 'id-one');
-
         $this->assertEquals('id="id-one"', $obj->toString());
+
+        $obj = Attribute::make('html');
+        $this->assertEquals('html', $obj->toString());
     }
 }

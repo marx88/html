@@ -26,7 +26,7 @@ class Attribute
     /**
      * 创建实例.
      */
-    public static function make(string $name, string $value)
+    public static function make(string $name, ?string $value = null)
     {
         $obj = new static();
         $obj->name = $name;
