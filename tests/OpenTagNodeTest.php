@@ -18,11 +18,11 @@ use PHPUnit\Framework\TestCase;
  */
 class OpenTagNodeTest extends TestCase
 {
-    public function testPushNode()
+    public function testPush()
     {
         $textNode = InnerTextNode::make('hello world');
 
-        $obj = OpenTagNode::make('span')->pushNode($textNode);
+        $obj = OpenTagNode::make('span')->push($textNode);
 
         $reflect = new \ReflectionClass($obj);
         $property = $reflect->getProperty('nodeArr');
@@ -36,7 +36,7 @@ class OpenTagNodeTest extends TestCase
     public function testInsertNodeAfterID()
     {
         $div = OpenTagNode::make('div')
-            ->pushNode(
+            ->push(
                 CloseTagNode::make('input')->addAttr('id', 'id'),
                 CloseTagNode::make('input')->addAttr('id', 'age'),
             )
@@ -58,7 +58,7 @@ class OpenTagNodeTest extends TestCase
     public function testInsertNodeBeforeID()
     {
         $div = OpenTagNode::make('div')
-            ->pushNode(
+            ->push(
                 CloseTagNode::make('input')->addAttr('id', 'id'),
                 CloseTagNode::make('input')->addAttr('id', 'age'),
             )
@@ -86,7 +86,7 @@ class OpenTagNodeTest extends TestCase
 
     public function testToString()
     {
-        $div = OpenTagNode::make('div')->pushNode(CloseTagNode::make('br'));
+        $div = OpenTagNode::make('div')->push(CloseTagNode::make('br'));
 
         $this->assertEquals('<div><br></div>', $div->toString());
     }

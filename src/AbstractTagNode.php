@@ -23,6 +23,19 @@ abstract class AbstractTagNode extends AbstractNode
      */
     protected $attrArr = [];
 
+    public function __call(string $name, array $arguments)
+    {
+        if (empty($arguments)) {
+            return $this->addAttr($name);
+        }
+
+        if (1 === count($arguments) && is_string($arguments[0])) {
+            return $this->addAttr($name, $arguments[0]);
+        }
+
+        throw new \Exception("undefined method {$name}");
+    }
+
     /**
      * 创建实例.
      */

@@ -21,7 +21,7 @@ class OpenTagNode extends AbstractTagNode
      *
      * @return static
      */
-    public function pushNode(NodeInterface ...$nodeArr)
+    public function push(NodeInterface ...$nodeArr)
     {
         array_push($this->nodeArr, ...$nodeArr);
 
@@ -71,7 +71,7 @@ class OpenTagNode extends AbstractTagNode
      */
     public function innerText(string $text)
     {
-        return $this->pushNode(InnerTextNode::make($text));
+        return $this->push(InnerTextNode::make($text));
     }
 
     /**

@@ -79,4 +79,13 @@ class CloseTagNodeTest extends TestCase
         $obj->addAttr('id', 'id-one');
         $this->assertEquals('id-one', $obj->getID());
     }
+
+    public function testCall()
+    {
+        $obj = close_tag('input')->id('name');
+        $this->assertEquals('<input id="name">', $obj->toString());
+
+        $obj = close_tag('input')->value();
+        $this->assertEquals('<input value>', $obj->toString());
+    }
 }
